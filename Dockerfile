@@ -16,11 +16,11 @@ LABEL org.opencontainers.image.title="Kubernetes cli toolset" \
       org.opencontainers.image.created=$IMAGE_CREATE_DATE \
       org.opencontainers.image.version=$IMAGE_VERSION \
       org.opencontainers.image.authors="Paul Bouwer" \
-      org.opencontainers.image.url="https://hub.docker.com/r/paulbouwer/k8s-cli-toolset/" \
-      org.opencontainers.image.documentation="https://github.com/paulbouwer/k8s-cli-toolset" \
+      org.opencontainers.image.url="https://hub.docker.com/r/ajaegle/k8s-cli-toolset/" \
+      org.opencontainers.image.documentation="https://github.com/ajaegle/k8s-cli-toolset" \
       org.opencontainers.image.vendor="Paul Bouwer" \
       org.opencontainers.image.licenses="MIT" \
-      org.opencontainers.image.source="https://github.com/paulbouwer/k8s-cli-toolset.git" \
+      org.opencontainers.image.source="https://github.com/ajaegle/k8s-cli-toolset.git" \
       org.opencontainers.image.revision=$IMAGE_SOURCE_REVISION 
 
 # Install dependencies and create dirs
