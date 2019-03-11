@@ -102,7 +102,7 @@ RUN curl -L https://github.com/jonmosco/kube-ps1/archive/$KUBE_PS1_VERSION.tar.g
     && rm -fr ./kube-ps1-$KUBE_PS1_VERSION \
     && echo "source ~/k8s-prompt/kube-ps1.sh" >> ~/.bashrc \
     && echo "source ~/k8s-prompt/k8s-cli-ps1.sh" >> ~/.bashrc \
-    && echo "PROMPT_COMMAND=\"_kube_ps1_update_cache && k8s_cli_ps1\"" >> ~/.bashrc 
+    && echo "PROMPT_COMMAND=\"history -a; history -c; history -r; _kube_ps1_update_cache && k8s_cli_ps1\"" >> ~/.bashrc 
 
 # Install envsubst (golang implementation)
 # License: MIT
