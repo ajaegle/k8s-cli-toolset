@@ -14,6 +14,7 @@ And the following utilities/tools:
 - jq
 - less
 - vim
+- envsubst
 
 Leverages kube-ps1 **0.6.0** to provide the current Kubernetes context and namespace on the bash prompt.
 
@@ -72,6 +73,10 @@ Kubernetes supports multiple virtual clusters backed by the same physical cluste
 ### kube-ps1
 
 [kube-ps1](https://github.com/jonmosco/kube-ps1) is a script that lets you add the current Kubernetes context and namespace configured on kubectl to your bash/zsh prompt strings (i.e. the `$PS1`). It has been leveraged in this image to provide a customised prompt that provides information about the Kubernetes cluster that `kubectl` is currently targeting.
+
+### envsubst
+
+[envsubst](https://github.com/a8m/envsubst) is a small golang implementation that allows minimal templating using environment variables to for example generate Kubernetes manifests with fixed versions instead of relying on some tags that are overwritten over time. Use with `envsubst < templates/deployment.yml.tmpl > .generated/deployment.yml` which comes in handy in CI environments that publish the current build tags as environment vars.
 
 ## Docker image
 

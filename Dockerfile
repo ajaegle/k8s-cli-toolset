@@ -9,6 +9,7 @@ ARG ISTIO_VERSION=1.0.3
 ARG HELM_VERSION=2.11.0
 ARG ARK_VERSION=0.9.10
 ARG KUBE_PS1_VERSION=0.6.0 
+ARG ENVSUBST_VERSION=v1.1.0
 
 # Metadata as defined in OCI image spec annotations - https://github.com/opencontainers/image-spec/blob/master/annotations.md
 LABEL org.opencontainers.image.title="Kubernetes cli toolset" \
@@ -102,6 +103,13 @@ RUN curl -L https://github.com/jonmosco/kube-ps1/archive/$KUBE_PS1_VERSION.tar.g
     && echo "source ~/k8s-prompt/kube-ps1.sh" >> ~/.bashrc \
     && echo "source ~/k8s-prompt/k8s-cli-ps1.sh" >> ~/.bashrc \
     && echo "PROMPT_COMMAND=\"_kube_ps1_update_cache && k8s_cli_ps1\"" >> ~/.bashrc 
+
+# Install envsubst (golang implementation)
+# License: MIT
+RUN mkdir envsubst-$ENVSUBST_VERSION \
+    && curl -L https://github.com/a8m/envsubst/releases/download/v1.1.0/envsubst-Linux-x86_64 --output envsubst \
+    && mv envsubst /usr/local/bin/ \
+    && chmod +x /usr/local/bin/envsubst
 
 RUN rm -fr /tmp/install-utils \
     && echo "alias k=kubectl" >> ~/.bashrc \
